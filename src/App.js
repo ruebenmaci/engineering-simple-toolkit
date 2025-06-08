@@ -9,7 +9,9 @@ import "./styles.css";
 function App() {
   return (
     <div className="app-container">
-      <h1>Engineering Toolkit</h1>
+      <h1 style={{ textAlign: "center", marginTop: "-10px" }}>
+        Simple Chem. Eng. Toolkit
+      </h1>
       <UnitConverter />
       <PipeProvider>
         <FlowRateCalculator />

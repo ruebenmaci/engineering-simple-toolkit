@@ -82,7 +82,12 @@ function PressureDropGraph() {
     }
   }, [flowRateUpdated]);
 
-  const handlePipeChange = (e) => setSelectedPipe(e.target.value);
+  const handlePipeChange = (e) => {
+    const newPipe = e.target.value;
+    setSelectedPipe(newPipe);
+    setDiameter(pipeData[newPipe].diameters[0]); // Automatically update diameter
+  };
+
   const handleDiameterChange = (e) => setDiameter(parseFloat(e.target.value));
   const handleLengthChange = (e) => setPipeLength(parseInt(e.target.value));
   const handleFluidChange = (e) => setSelectedFluid(e.target.value);
@@ -332,7 +337,7 @@ function PressureDropGraph() {
 
   return (
     <div className="box" style={{ padding: "4px 8px" }}>
-      <h2>Pressure Drop Graphs</h2>
+      <h2 style={{ marginTop: "5px" }}>Pressure Drop Graphs</h2>
 
       {/* Pipe Type, Diameter, Length, and Fluid Type */}
       <div
@@ -473,7 +478,15 @@ function PressureDropGraph() {
       </div>
 
       <div style={{ marginBottom: "30px" }}>
-        <h3 style={{ textAlign: "center" }}>Pressure Drop Along Pipe Length</h3>
+        <h3
+          style={{
+            textAlign: "center",
+            marginTop: "-15px",
+            marginBottom: "5px",
+          }}
+        >
+          Pressure Drop Along Pipe Length
+        </h3>
         <Line
           key={`${chartKey}-length`}
           data={cumulativeData}
@@ -482,7 +495,15 @@ function PressureDropGraph() {
       </div>
 
       <div>
-        <h3 style={{ textAlign: "center" }}>Pressure Drop vs. Flow Rate</h3>
+        <h3
+          style={{
+            textAlign: "center",
+            marginTop: "-15px",
+            marginBottom: "5px",
+          }}
+        >
+          Pressure Drop vs. Flow Rate
+        </h3>
         <Line
           key={`${chartKey}-flow`}
           data={flowRateData}

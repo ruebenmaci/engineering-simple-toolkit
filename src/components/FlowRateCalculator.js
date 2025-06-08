@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePipe } from "../context/PipeContext";
 
 function FlowRateCalculator() {
   const { diameter, setFlowRate, setFlowRateUpdated, velocity, setVelocity } =
     usePipe();
-  const [localFlowRate, setLocalFlowRate] = useState("");
+  const [localFlowRate, setLocalFlowRate] = useState(0.0127);
 
   const handleCalculate = () => {
     const d = parseFloat(diameter) * 0.0254; // convert inches to meters
@@ -14,6 +14,9 @@ function FlowRateCalculator() {
     if (!isNaN(d) && !isNaN(v) && v > 0 && d > 0) {
       const area = Math.PI * Math.pow(d / 2, 2);
       q = area * v; // m³/s
+    } else {
+      setLocalFlowRate(""); // fallback for bad inputs
+      setFlowRate(0);
     }
 
     setLocalFlowRate(q.toFixed(4) || "Invalid");
@@ -21,6 +24,11 @@ function FlowRateCalculator() {
     setFlowRateUpdated(true);
     setTimeout(() => setFlowRateUpdated(false), 0);
   };
+
+  useEffect(() => {
+    // Auto recalculate when diameter or velocity changes
+    handleCalculate(diameter, velocity);
+  }, [diameter, velocity]);
 
   const fieldStyle = {
     display: "flex",
@@ -47,7 +55,7 @@ function FlowRateCalculator() {
 
   return (
     <div className="box" style={{ padding: "4px 8px" }}>
-      <h2>Flow Rate Calculator</h2>
+      <h2 style={{ marginTop: "5px" }}>Flow Rate Calculator</h2>
       <div
         style={{
           display: "flex",
@@ -75,12 +83,6 @@ function FlowRateCalculator() {
             placeholder="m/s"
             style={inputStyle}
           />
-        </div>
-
-        <div style={fieldStyle}>
-          <button onClick={handleCalculate} style={buttonStyle}>
-            Calc
-          </button>
         </div>
 
         <div style={fieldStyle}>

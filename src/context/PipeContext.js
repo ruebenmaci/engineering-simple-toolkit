@@ -3,11 +3,11 @@ import React, { createContext, useContext, useState } from "react";
 const PipeContext = createContext();
 
 export const PipeProvider = ({ children }) => {
-  const [selectedPipe, setSelectedPipe] = useState("Drawn Tubing");
-  const [diameter, setDiameter] = useState("0.25");
+  const [selectedPipe, setSelectedPipe] = useState("Steel - Commercial");
+  const [diameter, setDiameter] = useState("0.5");
 
   // Shared flow rate and velocity
-  const [flowRate, setFlowRate] = useState(100); // default flow rate
+  const [flowRate, setFlowRate] = useState(0.0127); // default flow rate
   const [velocity, setVelocity] = useState(100); // default velocity
   const [flowRateUpdated, setFlowRateUpdated] = useState(false);
 
