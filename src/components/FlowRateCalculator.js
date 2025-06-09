@@ -67,8 +67,9 @@ function FlowRateCalculator() {
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
-          flexWrap: "nowrap",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: "12px",
           marginBottom: "10px",
         }}
       >
@@ -93,7 +94,7 @@ function FlowRateCalculator() {
             Vel:{" "}
             <Icon
               icon="simple-line-icons:speedometer"
-              style={{ fontSize: "1rem", marginBottom: "-5px" }}
+              style={{ fontSize: "1.3rem", marginBottom: "-5px" }}
             />
           </label>
           <input

@@ -51,10 +51,10 @@ function UnitConverter() {
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
-          flexWrap: "nowrap",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: "12px",
           marginBottom: "10px",
-          flexGrow: 1,
         }}
       >
         <div style={fieldStyle}>

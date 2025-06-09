@@ -349,7 +349,13 @@ function PressureDropGraph() {
 
       {/* Pipe Type, Diameter, Length, and Fluid Type */}
       <div
-        style={{ display: "flex", flexDirection: "row", marginBottom: "20px" }}
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: "12px",
+          marginBottom: "10px",
+        }}
       >
         <div style={fieldStyle}>
           <label style={labelStyle}>
@@ -362,7 +368,7 @@ function PressureDropGraph() {
           <select
             value={selectedPipe}
             onChange={handlePipeChange}
-            style={{ ...comboBoxStyle, width: "160px" }}
+            style={{ ...comboBoxStyle, width: "150px" }}
           >
             <option value="">Select</option>
             {Object.keys(pipeData).map((type) => (
@@ -373,7 +379,7 @@ function PressureDropGraph() {
           </select>
         </div>
 
-        <div style={{ ...fieldStyle, width: "140px" }}>
+        <div style={{ ...fieldStyle, width: "130px" }}>
           <label style={labelStyle}>
             Diameter:{" "}
             <Icon
@@ -418,7 +424,15 @@ function PressureDropGraph() {
 
       {/* Fluid Type, Viscosity, and Density */}
       <div style={{ marginBottom: "20px" }}>
-        <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "12px",
+            marginBottom: "10px",
+          }}
+        >
           <div>
             <label style={labelStyle}>
               Fluid Type:{" "}
