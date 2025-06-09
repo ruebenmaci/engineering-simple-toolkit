@@ -12,6 +12,8 @@ import {
   Legend,
 } from "chart.js";
 import annotationPlugin from "chartjs-plugin-annotation";
+import { GiPipes } from "react-icons/gi";
+import { Icon } from "@iconify/react";
 
 ChartJS.register(
   LineElement,
@@ -337,14 +339,26 @@ function PressureDropGraph() {
 
   return (
     <div className="box" style={{ padding: "4px 8px" }}>
-      <h2 style={{ marginTop: "5px" }}>Pressure Drop Graphs</h2>
+      <h2 style={{ marginTop: "5px" }}>
+        Pressure Drop Graphs{" "}
+        <Icon
+          icon="twemoji:chart-increasing"
+          style={{ fontSize: "3rem", marginBottom: "-15px" }}
+        />
+      </h2>
 
       {/* Pipe Type, Diameter, Length, and Fluid Type */}
       <div
         style={{ display: "flex", flexDirection: "row", marginBottom: "20px" }}
       >
         <div style={fieldStyle}>
-          <label style={labelStyle}>Pipe Type:</label>
+          <label style={labelStyle}>
+            Pipe Type:{" "}
+            <Icon
+              icon="ph:pipe-duotone"
+              style={{ fontSize: "1.5rem", marginBottom: "-5px" }}
+            />
+          </label>
           <select
             value={selectedPipe}
             onChange={handlePipeChange}
@@ -360,7 +374,13 @@ function PressureDropGraph() {
         </div>
 
         <div style={{ ...fieldStyle, width: "140px" }}>
-          <label style={labelStyle}>Diameter:</label>
+          <label style={labelStyle}>
+            Diameter:{" "}
+            <Icon
+              icon="marketeq:diameter"
+              style={{ fontSize: "1.5rem", marginBottom: "-5px" }}
+            />
+          </label>
           <select
             value={diameter}
             onChange={handleDiameterChange}
@@ -375,7 +395,10 @@ function PressureDropGraph() {
         </div>
 
         <div style={{ ...fieldStyle, width: "150px" }}>
-          <label style={labelStyle}>Length:</label>
+          <label style={labelStyle}>
+            Length:{" "}
+            <Icon icon="noto:straight-ruler" style={{ fontSize: "1.5rem" }} />
+          </label>
           <select
             value={pipeLength}
             onChange={handleLengthChange}
@@ -397,7 +420,13 @@ function PressureDropGraph() {
       <div style={{ marginBottom: "20px" }}>
         <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
           <div>
-            <label style={labelStyle}>Fluid Type:</label>
+            <label style={labelStyle}>
+              Fluid Type:{" "}
+              <Icon
+                icon="material-icon-theme:liquid"
+                style={{ fontSize: "1.3rem", marginBottom: "-5px" }}
+              />
+            </label>
             <select
               value={selectedFluid}
               onChange={handleFluidChange}
@@ -461,7 +490,13 @@ function PressureDropGraph() {
             />
           </div>
           <div>
-            <label style={labelStyle}>Flow Regime:</label>
+            <label style={labelStyle}>
+              Flow Regime:{" "}
+              <Icon
+                icon="noto:water-wave"
+                style={{ fontSize: "1.3rem", marginBottom: "-5px" }}
+              />
+            </label>
             <input
               type="text"
               value={flowRegime}

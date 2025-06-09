@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { usePipe } from "../context/PipeContext";
+import { Icon } from "@iconify/react";
+import { BiRun } from "react-icons/bi";
 
 function FlowRateCalculator() {
   const { diameter, setFlowRate, setFlowRateUpdated, velocity, setVelocity } =
@@ -55,7 +57,13 @@ function FlowRateCalculator() {
 
   return (
     <div className="box" style={{ padding: "4px 8px" }}>
-      <h2 style={{ marginTop: "5px" }}>Flow Rate Calculator</h2>
+      <h2 style={{ marginTop: "5px" }}>
+        Flow Rate Calculator{" "}
+        <Icon
+          icon="flat-color-icons:calculator"
+          style={{ fontSize: "3rem", marginBottom: "-15px" }}
+        />
+      </h2>
       <div
         style={{
           display: "flex",
@@ -65,7 +73,13 @@ function FlowRateCalculator() {
         }}
       >
         <div style={fieldStyle}>
-          <label style={labelStyle}>Dia:</label>
+          <label style={labelStyle}>
+            Dia:{" "}
+            <Icon
+              icon="marketeq:diameter"
+              style={{ fontSize: "1.5rem", marginBottom: "-5px" }}
+            />
+          </label>
           <input
             type="text"
             value={`${diameter}"`}
@@ -75,7 +89,13 @@ function FlowRateCalculator() {
         </div>
 
         <div style={fieldStyle}>
-          <label style={labelStyle}>Vel:</label>
+          <label style={labelStyle}>
+            Vel:{" "}
+            <Icon
+              icon="simple-line-icons:speedometer"
+              style={{ fontSize: "1rem", marginBottom: "-5px" }}
+            />
+          </label>
           <input
             type="number"
             value={velocity} // Use velocity from context
